@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\Core.csproj": {}
+    "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\Core.csproj": {
+    "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",

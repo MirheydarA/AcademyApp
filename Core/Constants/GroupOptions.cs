@@ -11,6 +11,7 @@ namespace Core.Constants
         Exit,
         CreateGroup,
         UpdateGroup,
+        DeleteGroup,
         GetAllGroups,
         GetGroupById,
         GetGroupByName

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Presentation\\Presentation.csproj": {}
+    "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Presentation\\Presentation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\Core.csproj": {
+    "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +59,14 @@
         }
       }
     },
-    "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Data\\Data.csproj": {
+    "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Data\\Data.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Data\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,8 +83,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Core\\Core.csproj"
+              "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Core\\Core.csproj"
               }
             }
           }
@@ -118,14 +118,14 @@
         }
       }
     },
-    "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Presentation\\Presentation.csproj": {
+    "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Presentation\\Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Presentation\\Presentation.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Presentation\\Presentation.csproj",
         "projectName": "Presentation",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Presentation\\Presentation.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Presentation\\Presentation.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Presentation\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Presentation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -142,8 +142,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\AcademyApp\\Data\\Data.csproj"
+              "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Desktop\\AcademyApp\\Data\\Data.csproj"
               }
             }
           }

@@ -3,15 +3,21 @@ using Core.Helpers;
 using Data.Repositories.Concrete;
 using System.Globalization;
 using Core.Entities;
+using Presentation.Services;
 
 namespace Presentation
 {
     public static class Program
     {
+        private readonly static GroupService _groupService;
+        static Program()
+        {
+            _groupService = new GroupService();
+        }
         static void Main(string[] args)
         {
-            GroupRepository _groundrepository = new GroupRepository();
-            ConsoleHelper.WriteWithColor("--- WELCOME ---", ConsoleColor.DarkCyan);
+
+        GroupMenu: ConsoleHelper.WriteWithColor("--- WELCOME ---", ConsoleColor.DarkCyan);
 
             while (true)
             {
@@ -42,79 +48,34 @@ namespace Presentation
                         switch (number)
                         {
                             case (int)GroupOptions.CreateGroup:
-                                ConsoleHelper.WriteWithColor("--- Enter Name ---", ConsoleColor.DarkCyan);
-                                string name = Console.ReadLine();
-                                MaxSize: ConsoleHelper.WriteWithColor("--- Enter max size ---", ConsoleColor.DarkCyan);
-                                int maxsize;
-                                IsSucceded = int.TryParse(Console.ReadLine(), out maxsize);
-                                if (!IsSucceded)
-                                {
-                                    ConsoleHelper.WriteWithColor("Max size is not correct format", ConsoleColor.Red);
-                                    goto MaxSize;
-                                }
-                                if (maxsize > 18)
-                                {
-                                    ConsoleHelper.WriteWithColor("Max size can not be bigger than 18", ConsoleColor.Red);
-                                    goto MaxSize;
-                                }
-
-                                StartDate: ConsoleHelper.WriteWithColor("--- Enter start date ---", ConsoleColor.DarkCyan);
-                                DateTime startDate;
-                                IsSucceded = DateTime.TryParseExact(Console.ReadLine(), "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out startDate);
-
-                                DateTime boundaryDate = new DateTime(2015,01,01);
-                                if (startDate < boundaryDate) 
-                                {
-                                    ConsoleHelper.WriteWithColor("Start date is not right", ConsoleColor.Red);
-                                    goto StartDate;
-                                }
-
-                                if (!IsSucceded)
-                                {
-                                    ConsoleHelper.WriteWithColor("Start date is not correct format", ConsoleColor.Red);
-                                    goto StartDate;
-                                }
-
-                                EndDate: ConsoleHelper.WriteWithColor("--- Enter end date ---", ConsoleColor.DarkCyan);
-                                DateTime endDate;
-                                IsSucceded = DateTime.TryParseExact(Console.ReadLine(), "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out endDate);
-                                if (!IsSucceded)
-                                {
-                                    ConsoleHelper.WriteWithColor("End date is not correct format", ConsoleColor.Red);
-                                    goto EndDate;
-                                }
-
-                                if (startDate > endDate)
-                                {
-                                    ConsoleHelper.WriteWithColor("End date must be bigger than start date", ConsoleColor.Red);
-                                    goto EndDate;
-                                }
-
-                                Group group = new Group()
-                                {
-                                    Name = name,
-                                    MaxSize = maxsize,
-                                    StartDate = startDate,
-                                    EndDate = endDate
-                                };
-
-                                _groundrepository.Add(group);
-
-
+                                _groupService.Create();
                                 break;
+
                             case (int)GroupOptions.UpdateGroup:
+                                _groupService.Update();
                                 break;
-                            case (int)GroupOptions.GetAllGroups:
-                                break;
-                            case (int)GroupOptions.GetGroupById:
-                                break;
-                            case (int)GroupOptions.GetGroupByName:
-                                break;
-                            case (int)GroupOptions.Exit:
-                                return;
-                                
 
-                            default:
+                            case (int)GroupOptions.DeleteGroup:
+                                _groupService.Delete();
+                                break;
+
+                            case (int)GroupOptions.GetAllGroups:
+                                _groupService.GetAll();
+                                break;
+
+                            case (int)GroupOptions.GetGroupById:
+                                _groupService.GetGroupById();
+                                break;
+
+                            case (int)GroupOptions.GetGroupByName:
+                                _groupService.GetGroupByName();
+                                break;
+
+                            case (int)GroupOptions.Exit:
+                                if (_groupService.Exit() == true)
+                                {
+                                    return;
+                                }
                                 break;
                         }
                     }

@@ -8,11 +8,12 @@ namespace Data.Repositories.Abstract
 {
     internal interface IGroupRepository
     {
-        List<Group> GetAll(int id);
+        List<Group> GetAll();
         Group Get(int id);
+        Group GetByName(string name);
         void Add(Group group);
         void Update(Group group);
         void Delete(Group group);
-        
+
     }
 }
