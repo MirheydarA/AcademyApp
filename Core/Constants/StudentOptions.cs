@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Core.Constants
 {
-    public enum GroupOptions
+    public enum StudentOptions
     {
         BackToMainMenu,
-        CreateGroup,
-        UpdateGroup,
-        DeleteGroup,
-        GetAllGroups,
-        GetGroupById,
-        GetGroupByName
+        Create,
+        Update,
+        Delete,
+        GetAll,
+        GetAllByGroup
     }
 }

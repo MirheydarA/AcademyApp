@@ -303,30 +303,6 @@ namespace Presentation.Services
             }
         }
 
-        public bool Exit()
-        {
-        AreYouSure: ConsoleHelper.WriteWithColor("Are you sure?| -- *Y* or *N* -- ", ConsoleColor.DarkRed);
-            char decision;
-            bool IsSucceded = char.TryParse(Console.ReadLine(), out decision);
-            if (!IsSucceded)
-            {
-                ConsoleHelper.WriteWithColor("Your choise is not correct format", ConsoleColor.Red);
-                goto AreYouSure;
-            }
-            if (!(decision == 'Y' || decision == 'N'))
-            {
-                ConsoleHelper.WriteWithColor("Your choise is not correct", ConsoleColor.Red);
-                goto AreYouSure;
-            }
-            if (decision == 'Y')
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
     }
 }
