@@ -8,7 +8,7 @@ namespace Core.Constants
 {
     public enum MainMenuOptions
     {
-        Exit,
+        Logout,
         Groups,
         Students
     }

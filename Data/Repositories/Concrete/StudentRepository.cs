@@ -37,6 +37,8 @@ namespace Data.Repositories.Concrete
                 dbStudent.Name= student.Name;
                 dbStudent.Surname= student.Surname;
                 dbStudent.BirthDate= student.BirthDate;
+                dbStudent.Group = student.Group;
+                dbStudent.GroupId= student.GroupId;
             }
         }
        

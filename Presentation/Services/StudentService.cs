@@ -128,6 +128,63 @@ namespace Presentation.Services
                 ConsoleHelper.WriteWithColor($"{student.Name} {student.Surname} is succesfully added");
             }
         }
+        public void Update()
+        {
+        Enter: GetAll();
+
+            ConsoleHelper.WriteWithColor("Enter student id");
+            int id;
+            bool isSucceded = int.TryParse(Console.ReadLine(), out id);
+            if (!isSucceded)
+            {
+                ConsoleHelper.WriteWithColor("Inputed id is not correct");
+                goto Enter;
+            }
+            var student = _studentRepository.Get(id);
+            if (student is null)
+            {
+                ConsoleHelper.WriteWithColor("There is no any student in this id"); 
+                goto Enter;
+            }
+            ConsoleHelper.WriteWithColor("Enter new name");
+            string name = Console.ReadLine();
+            
+            ConsoleHelper.WriteWithColor("Enter new surname");
+            string surname = Console.ReadLine();
+
+        BirthDate: ConsoleHelper.WriteWithColor("--- Enter new birth date ---", ConsoleColor.DarkCyan);
+            DateTime birthDate;
+            bool IsSucceded = DateTime.TryParseExact(Console.ReadLine(), "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out birthDate);
+            if (!IsSucceded)
+            {
+                ConsoleHelper.WriteWithColor("Birth date is not correct format", ConsoleColor.Red);
+                goto BirthDate;
+            }
+            GroupDesc:  _groupService.GetAll();
+            ConsoleHelper.WriteWithColor("Enetr new grooup id");
+            int groupid;
+            bool isSucceeded = int.TryParse(Console.ReadLine(), out groupid);
+            if (!isSucceeded)
+            {
+                ConsoleHelper.WriteWithColor("Group ID is not correct format", ConsoleColor.Red);
+                goto GroupDesc;
+            }
+            var group = _groupRepository.Get(groupid);
+            if (group is null)
+            {
+                ConsoleHelper.WriteWithColor("There is no any group in this id");
+                goto GroupDesc;
+            }
+            student.Name = name;
+            student.BirthDate = birthDate;
+            student.Surname = surname;
+            student.Group= group;
+            student.GroupId= groupid;
+
+            _studentRepository.Update(student);
+            ConsoleHelper.WriteWithColor($"{student.Name} {student.Surname} Group : {group.Name} succesfully updated");
+
+        }
         public void Delete()
         {
             GetAll();
