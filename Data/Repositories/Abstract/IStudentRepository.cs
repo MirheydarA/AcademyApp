@@ -9,6 +9,7 @@ namespace Data.Repositories.Abstract
 {
     public interface IStudentRepository : IRepository<Student>
     {
-
+        bool IsDuplicatEmail(string email);
+        
     }
 }

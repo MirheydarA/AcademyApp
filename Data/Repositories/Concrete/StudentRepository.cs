@@ -11,6 +11,7 @@ namespace Data.Repositories.Concrete
 {
     public class StudentRepository : IStudentRepository
     {
+        int id; // 
         public List<Student> GetAll()
         {
             return DbContext.Students;
@@ -24,6 +25,7 @@ namespace Data.Repositories.Concrete
        
         public void Add(Student student)
         {
+            student.Id = ++id;
             DbContext.Students.Add(student);
         }
         
@@ -41,6 +43,11 @@ namespace Data.Repositories.Concrete
         public void Delete(Student student)
         {
            DbContext.Students.Remove(student); 
+        }
+
+        public bool IsDuplicatEmail(string email)
+        {
+           return DbContext.Students.Any(s => s.Email == email); 
         }
     }
 }

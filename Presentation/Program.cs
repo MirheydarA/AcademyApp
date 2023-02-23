@@ -122,18 +122,19 @@ namespace Presentation
                                     break;
 
                                 case (int)StudentOptions.Delete:
-
+                                    _studentService.Delete();   
                                     break;
 
                                 case (int)StudentOptions.GetAll:
-
+                                    _studentService.GetAll();   
                                     break;
 
                                 case (int)StudentOptions.GetAllByGroup:
-
+                                    _studentService.GetAllByGroup();
                                     break;
 
                                 case (int)StudentOptions.BackToMainMenu:
+                                    ConsoleHelper.WriteWithColor("Your choise is not correct");
                                     goto MainMenu;
                             }
                         }

@@ -12,13 +12,16 @@ namespace Presentation.Services
     public class GroupService
     {
         private readonly GroupRepository _grouprepository;
+        private readonly StudentRepository _studentRepository;
+
         public GroupService()
         {
             _grouprepository = new GroupRepository();
+            _studentRepository = new StudentRepository();
         }
         public void GetAll()
         {
-            var groups = _grouprepository.GetAll();
+            var groups = _grouprepository.GetAll(); 
 
             ConsoleHelper.WriteWithColor(" --- All Groups --- ");
             if (groups.Count == 0)
@@ -84,8 +87,14 @@ namespace Presentation.Services
 
         public void Create()
         {
-            ConsoleHelper.WriteWithColor("--- Enter Name ---", ConsoleColor.DarkCyan);
+            EnterName: ConsoleHelper.WriteWithColor("--- Enter Name ---", ConsoleColor.DarkCyan);
             string name = Console.ReadLine();
+            var group = _grouprepository.GetByName(name);
+            if (group is not null)
+            {
+                ConsoleHelper.WriteWithColor("This group is already added");
+                goto EnterName;
+            }
         MaxSize: ConsoleHelper.WriteWithColor("--- Enter max size ---", ConsoleColor.DarkCyan);
             int maxsize;
             bool IsSucceded = int.TryParse(Console.ReadLine(), out maxsize);
@@ -132,7 +141,7 @@ namespace Presentation.Services
                 goto EndDate;
             }
 
-            Group group = new Group()
+             group = new Group()
             {
                 Name = name,
                 MaxSize = maxsize,
@@ -291,13 +300,18 @@ namespace Presentation.Services
                 ConsoleHelper.WriteWithColor("ID is not correct format", ConsoleColor.Red);
                 goto ID;
             }
-            var dbGroup = _grouprepository.Get(id);
-            if (dbGroup == null)
+            Group dbGroup = _grouprepository.Get(id); //
+            if (_grouprepository.Get(id) == null)
             {
                 ConsoleHelper.WriteWithColor("There is no any group in this ID", ConsoleColor.Red);
             }
             else
             {
+                foreach (var student in dbGroup.Students)
+                {
+                    student.Group = null;
+                    _studentRepository.Update(student);
+                }
                 _grouprepository.Delete(dbGroup);
                 ConsoleHelper.WriteWithColor("Group succesfully deleted");
             }

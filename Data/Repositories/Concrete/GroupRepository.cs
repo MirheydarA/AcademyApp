@@ -53,8 +53,9 @@ namespace Data.Repositories.Concrete
             DbContext.Groups.Remove(group);
         }
 
-
-
-
+        public void Delete(Student dbStudent)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
