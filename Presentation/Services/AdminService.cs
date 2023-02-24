@@ -15,7 +15,7 @@ namespace Presentation.Services
         private readonly AdminRepository _adminRepository;
         public AdminService() 
         {
-            _adminRepository= new AdminRepository();
+            _adminRepository= new AdminRepository(); //
         }   
         public Admin Authorize() 
         {

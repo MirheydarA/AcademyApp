@@ -10,7 +10,7 @@ namespace Core.Entities
     {
         public Group()
         {
-            Students= new List<Student>();
+            Students = new List<Student>();
         }
         public string Name { get; set; }
         public int MaxSize { get; set; }
@@ -18,6 +18,8 @@ namespace Core.Entities
         public DateTime EndDate { get; set; }
 
         public List<Student> Students { get; set;}
+        public Teacher Teacher { get; set; }
+        public int TeacherId { get; set; }
          
     }
 }

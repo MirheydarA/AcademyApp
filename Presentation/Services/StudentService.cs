@@ -198,9 +198,10 @@ namespace Presentation.Services
                     ConsoleHelper.WriteWithColor("Id is not correct format");
                 }
                 var dbStudent = _studentRepository.Get(id);
-
-
-                _groupRepository.Delete(dbStudent);
+                var group = _groupRepository.Get(id);
+                group.Students.Remove(dbStudent);
+                
+                _studentRepository.Delete(dbStudent);
                 ConsoleHelper.WriteWithColor($"{dbStudent.Name} {dbStudent.Surname} is succesfully deleted", ConsoleColor.Green);
             }
         }

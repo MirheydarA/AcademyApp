@@ -11,7 +11,7 @@ namespace Data.Repositories.Concrete
 {
     public class StudentRepository : IStudentRepository
     {
-        int id; // 
+        static int id; 
         public List<Student> GetAll()
         {
             return DbContext.Students;

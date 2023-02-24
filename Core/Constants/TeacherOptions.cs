@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Core.Constants
 {
-    public enum MainMenuOptions
+    public enum TeacherOptions
     {
-        Logout,
-        Groups,
-        Students,
-        Teacher
+        BackToMainMenu,
+        CreateTeacher,
+        UpdateTeacher,
+        DeleteTeacher,
+        GetAllTeacher,
     }
 }
