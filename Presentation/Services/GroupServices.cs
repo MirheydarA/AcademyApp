@@ -41,11 +41,16 @@ namespace Presentation.Services
         public void GetAllGroupsByTeacher()
         {
             var teachers = _teacherRepository.GetAll();
+            if (teachers.Count == 0)
+            {
+                ConsoleHelper.WriteWithColor("There is no any teacher", ConsoleColor.Red);
+                return;
+            }
             foreach (var teacher in teachers)
             {
                 ConsoleHelper.WriteWithColor($"ID {teacher.Id} Fullname {teacher.Name} {teacher.Surname}");
             }
-
+            ConsoleHelper.WriteWithColor("Enter teacher ID");
             int id;
             EnterID: bool isSucceeded = int.TryParse(Console.ReadLine(), out id);
             if (!isSucceeded)
@@ -102,6 +107,10 @@ namespace Presentation.Services
         public void GetGroupByName()
         {
             GetAll();
+            if (_grouprepository.GetAll().Count == 0)
+            {
+                return;
+            }
             ConsoleHelper.WriteWithColor(" *--- Enter Group Name ---*");
             string name = Console.ReadLine();
 
@@ -121,7 +130,7 @@ namespace Presentation.Services
         {
             if (_teacherRepository.GetAll().Count == 0)
             {
-                ConsoleHelper.WriteWithColor("You must create ateacher first");
+                ConsoleHelper.WriteWithColor("You must create a teacher first!", ConsoleColor.Red);
             }
             else
             {
@@ -179,6 +188,8 @@ namespace Presentation.Services
                     goto EndDate;
                 }
 
+                ConsoleHelper.WriteWithColor("Please choose teacher for group", ConsoleColor.Cyan);
+
                 var teachers = _teacherRepository.GetAll();
                 foreach (var teacher in teachers)
                 {
@@ -190,14 +201,14 @@ namespace Presentation.Services
                 IsSucceded = int.TryParse(Console.ReadLine(),out teacherid);
                 if (!IsSucceded)
                 {
-                    ConsoleHelper.WriteWithColor("Inputed ID is not correct format");
+                    ConsoleHelper.WriteWithColor("Inputed ID is not correct format!", ConsoleColor.Red);
                     goto Enterid;
                 }
 
                 var dbTeacher = _teacherRepository.Get(teacherid);
                 if (dbTeacher == null)
                 {
-                    ConsoleHelper.WriteWithColor("There is no any teacher in this id");
+                    ConsoleHelper.WriteWithColor("There is no any teacher in this id",  ConsoleColor.Red);
                     goto Enterid;
                 }
 
@@ -221,6 +232,10 @@ namespace Presentation.Services
         public void Update()
         {
             GetAll();
+            if (_grouprepository.GetAll().Count == 0)
+            {
+                return;
+            }
         IDorNAme: ConsoleHelper.WriteWithColor(" *--- Enter group name or ID ---*\n For ID press 1 | For Name press 2");
             int decision;
             bool IsSuceeded = int.TryParse(Console.ReadLine(), out decision);
@@ -354,7 +369,10 @@ namespace Presentation.Services
         public void Delete()
         {
             GetAll();
-
+            if (_grouprepository.GetAll().Count == 0)
+            {
+                return;
+            }
 
         ID: ConsoleHelper.WriteWithColor("--- Enter Id ---", ConsoleColor.DarkCyan);
             int id;

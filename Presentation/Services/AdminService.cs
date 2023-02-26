@@ -19,12 +19,13 @@ namespace Presentation.Services
         }   
         public Admin Authorize() 
         {
-            Login:  ConsoleHelper.WriteWithColor("LOGIN");
+            Login:  ConsoleHelper.WriteWithColor("* --- LOGIN --- *", ConsoleColor.Blue);
             
-            ConsoleHelper.WriteWithColor("Enter Username");
+            ConsoleHelper.WriteWithColor("Please enter username:", ConsoleColor.DarkYellow);
             string username = Console.ReadLine();
             
-            ConsoleHelper.WriteWithColor("Enter Password");
+            
+            ConsoleHelper.WriteWithColor("\nPlease enter password:", ConsoleColor.DarkYellow);
             string password = Console.ReadLine();
             
             var admin =  _adminRepository.GetByUsernameAndPassword(username, password);

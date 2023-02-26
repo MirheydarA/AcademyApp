@@ -31,25 +31,23 @@ namespace Presentation
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            ConsoleHelper.WriteWithColor("--- WELCOME ---", ConsoleColor.DarkCyan);
 
 
         Authorize: var admin = _adminService.Authorize();
             if (admin is not null)
             {
-            MainMenu: ConsoleHelper.WriteWithColor("1. Groups", ConsoleColor.DarkYellow);
+            MainMenu: ConsoleHelper.WriteWithColor("\n1. Groups", ConsoleColor.DarkYellow);
                 ConsoleHelper.WriteWithColor("2. Students", ConsoleColor.DarkYellow);
                 ConsoleHelper.WriteWithColor("3. Teacher", ConsoleColor.DarkYellow);
-
                 ConsoleHelper.WriteWithColor("0. Logout", ConsoleColor.DarkYellow);
-
                 ConsoleHelper.WriteWithColor("--- Select Option ---", ConsoleColor.DarkCyan);
 
                 int number;
                 bool IsSucceded = int.TryParse(Console.ReadLine(), out number);
                 if (!IsSucceded)
                 {
-                    ConsoleHelper.WriteWithColor("Inputed number is not correct", ConsoleColor.Red);
+                    ConsoleHelper.WriteWithColor("Inputed number is not correct format!", ConsoleColor.Red);
+                    goto MainMenu;
                 }
 
                 switch (number)
@@ -202,7 +200,7 @@ namespace Presentation
                                         break;
                                     
                                     case (int)TeacherOptions.BackToMainMenu:
-                                        break;
+                                        goto MainMenu;
 
                                     default:
                                         ConsoleHelper.WriteWithColor("Inputed number is not exist", ConsoleColor.Red);
@@ -215,8 +213,8 @@ namespace Presentation
                     case (int)MainMenuOptions.Logout:
                         goto Authorize;
                     default:
-                        ConsoleHelper.WriteWithColor("Inputed number is not exist", ConsoleColor.Red);
-                        goto Authorize;
+                        ConsoleHelper.WriteWithColor("Inputed number is not exist!", ConsoleColor.Red);
+                        goto MainMenu;
                         
                 }
             }
